@@ -8,7 +8,7 @@ import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Getter @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // 접근제어 private X
 @ToString(of = {"id", "username", "age"})
 @NamedQuery(
         name = "Member.findByUsername",
@@ -46,6 +46,6 @@ public class Member extends BaseEntity {
 
     public void changeTeam(Team team) {
         this.team = team;
-        team.getMembers().add(this);
+        team.getMembers().add(this); // 반대쪽도 수정
     }
 }
